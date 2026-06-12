@@ -9,6 +9,7 @@ import {
   Users,
   Download,
   Settings,
+  ShoppingBag,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { UserButton } from "@clerk/nextjs";
@@ -19,6 +20,7 @@ const links = [
   { href: "/dashboard/jobs", label: "Jobs", icon: Briefcase },
   { href: "/dashboard/leads", label: "Leads", icon: Users },
   { href: "/dashboard/exports", label: "Exports", icon: Download },
+  { href: "/dashboard/hire-shopify-experts", label: "Hire Shopify Experts", icon: ShoppingBag },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 

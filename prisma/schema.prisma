@@ -33,6 +33,7 @@ model User {
 
   jobs SearchJob[]
   leads Lead[]
+  hireShopifyExpertLeads HireShopifyExpertLead[]
 }
 
 model SearchJob {
@@ -109,4 +110,35 @@ model Lead {
   @@index([state])
   @@index([category])
   @@index([zipCode])
+}
+
+model HireShopifyExpertLead {
+  id              String    @id @default(cuid())
+  userId          String
+  name            String?
+  website         String?
+  profileUrl      String?
+  email           String?
+  phone           String?
+  country         String?
+  city            String?
+  services        String?
+  specialization  String?
+  rating          Float?
+  reviewsCount    Int?
+  socialLinks     Json?
+  sourceUrl       String?
+  description     String?
+  category        String?
+  status          String?   @default("active")
+  dateScraped     DateTime? @default(now())
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([country])
+  @@index([category])
+  @@index([rating])
 }
